@@ -1,0 +1,4 @@
+# One domain per line; everything after # is a comment.
+example.com
+www.example.org      # subdomains share one RDAP query for example.org
+example.co.uk

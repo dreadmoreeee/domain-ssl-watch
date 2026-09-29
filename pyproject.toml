@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "domain-ssl-watch"
+version = "1.0.0"
+description = "Watch TLS certificate expiry, domain registration expiry (RDAP), DNS and HTTP status for a list of domains."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Marvin Palencia" }]
+keywords = ["tls", "ssl", "certificate", "rdap", "domain", "monitoring", "cron"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: System :: Monitoring",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+domain-ssl-watch = "domain_ssl_watch.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/dreadmoreeee/domain-ssl-watch"
+
+[tool.setuptools]
+packages = ["domain_ssl_watch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

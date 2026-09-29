@@ -1,0 +1,8 @@
+[Unit]
+Description=Check domain, TLS certificate and DNS status
+
+[Service]
+Type=oneshot
+EnvironmentFile=-/etc/domain-ssl-watch/env
+ExecStart=/usr/local/bin/domain-ssl-watch -f /etc/domain-ssl-watch/domains.txt --alert
+# Exit codes 1 (WARN) and 2 (CRIT/ERROR) mark the unit as failed on purpose.

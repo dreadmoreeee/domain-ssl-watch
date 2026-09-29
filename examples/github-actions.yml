@@ -1,0 +1,18 @@
+name: domain-watch
+on:
+  schedule:
+    - cron: "15 7 * * *"
+  workflow_dispatch:
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install domain-ssl-watch
+      - run: domain-ssl-watch -f domains.txt --format markdown --alert
+        env:
+          DSW_TELEGRAM_BOT_TOKEN: ${{ secrets.DSW_TELEGRAM_BOT_TOKEN }}
+          DSW_TELEGRAM_CHAT_ID: ${{ secrets.DSW_TELEGRAM_CHAT_ID }}

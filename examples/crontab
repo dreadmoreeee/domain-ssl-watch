@@ -1,0 +1,3 @@
+# Every day at 07:15; exit code 1/2 makes cron mail the output (MAILTO) and
+# --alert also sends email/Telegram when DSW_* variables are set.
+15 7 * * * domain-ssl-watch -f /etc/domain-ssl-watch/domains.txt --alert
